@@ -42,7 +42,6 @@ define nginx::resource::location(
   $fastcgi_script     = undef,
   $protocol           = 'plain',
   $try_files          = undef,
-  $option             = undef,
   $options            = undef,
   $location
 ) {
