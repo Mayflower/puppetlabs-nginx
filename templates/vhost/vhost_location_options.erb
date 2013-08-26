@@ -9,8 +9,11 @@
     <%= option %> <%= value %>;
     <% end %>
     <% end %>
-    <% if scope['try_files'].to_s != 'undef' then %>                            
-    try_files <% scope['try_files'].each do |try| -%> <%= try %> <% end -%>;    
-    <% end %>                                 
+    <% if scope['index_files'].to_s != 'undef' and scope['index_files'].to_s != '' then %>
+    index <% scope['index_files'].each do |index| -%> <%= index %> <% end -%>;
+    <% end %> 
+    <% if scope['try_files'].to_s != 'undef' then %> 
+    try_files <% scope['try_files'].each do |try| -%> <%= try %> <% end -%>;
+    <% end %>
   }
 #location options end
