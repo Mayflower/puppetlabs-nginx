@@ -1,3 +1,4 @@
+# location directory start
   location <%= scope['location'] %> {
     <% if scope['www_root'].to_s != 'undef' %>
     root  <%= scope['www_root'] %>;
@@ -22,3 +23,4 @@
     <% end %>
     <% end %>
   }
+# location directory end

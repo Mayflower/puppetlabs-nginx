@@ -1,3 +1,4 @@
+# location fastcgi start
   location <%= location %> {
     <% if has_variable?("try_files") then %>
     try_files <% scope['try_files'].each do |try| -%> <%= try %> <% end -%>;
@@ -9,3 +10,4 @@
     fastcgi_param SCRIPT_FILENAME <%= fastcgi_script %>;
     <% end %>
   }
+# location fastcgi end
