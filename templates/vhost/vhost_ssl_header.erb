@@ -3,9 +3,7 @@ server {
   <%- if ipv6_enable && ipv6_enable != 'false' && @ipaddress6 %>
   listen [<%= ipv6_listen_ip %>]:443<% if scope['name'].to_s == '_' %> ipv6only=on default_server<% end %>;
   <%- end -%>
-  <%- if listen_ip != '*' -%>
   listen <%= listen_ip %>:443<% if scope['name'].to_s == '_' %> default_server<% end %>;
-  <%- end -%>
 
   server_name <%= name %> <%= server_names.join(' ') %>;
   access_log  <%= scope.lookupvar('nginx::params::nx_logdir')%>/<%= name %>.access.log;
