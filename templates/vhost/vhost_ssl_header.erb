@@ -1,10 +1,10 @@
 server {
   <% # if ipv6 is enabled, change listen_ip to [::] if defined as ipv4 * %>
   <%- if ipv6_enable && ipv6_enable != 'false' && @ipaddress6 %>
-  listen [<%= ipv6_listen_ip %>]:443;
+  listen [<%= ipv6_listen_ip %>]:443<% if scope['name'].to_s == '_' %> ipv6only=on default_server<% end %>;
   <%- end -%>
   <%- if listen_ip != '*' -%>
-  listen <%= listen_ip %>:443;
+  listen <%= listen_ip %>:443<% if scope['name'].to_s == '_' %> default_server<% end %>;
   <%- end -%>
 
   server_name <%= name %> <%= server_names.join(' ') %>;
