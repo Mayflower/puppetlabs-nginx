@@ -16,8 +16,12 @@ server {
   ssl_certificate      <%= ssl_cert %>;
   ssl_certificate_key  <%= ssl_key %>;
 
-  ssl_session_timeout  5m;
+  # Use a SSL/TLS cache for SSL session resume.
+  ssl_session_cache shared:SSL:10m;
+  ssl_session_timeout  10m;
 
-  ssl_protocols  SSLv3 TLSv1;
-  ssl_ciphers  ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
-  ssl_prefer_server_ciphers   on;
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+  ssl_prefer_server_ciphers on;
+
+  # Only use PFS-safe ciphers and RC4 as a last resort (for IE in Windows XP, susceptible to BEAST!)
+  ssl_ciphers "EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS +RC4 RC4";
