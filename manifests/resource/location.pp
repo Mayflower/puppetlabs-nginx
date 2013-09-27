@@ -36,6 +36,7 @@ define nginx::resource::location(
   $www_root           = undef,
   $index_files        = ['index.html', 'index.htm', 'index.php'],
   $proxy              = undef,
+  $proxy_headers      = {},
   $proxy_read_timeout = $nginx::params::nx_proxy_read_timeout,
   $fastcgi            = undef,
   $fastcgi_params     = '/etc/nginx/fastcgi_params',

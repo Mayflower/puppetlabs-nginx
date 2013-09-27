@@ -93,6 +93,7 @@ define nginx::resource::vhost(
     www_root           => $www_root,
     proxy              => $proxy,
     proxy_read_timeout => $proxy_read_timeout,
+    proxy_headers      => $proxy_headers,
     fastcgi            => $fastcgi,
     fastcgi_params     => $fastcgi_params,
     fastcgi_script     => $fastcgi_script,
