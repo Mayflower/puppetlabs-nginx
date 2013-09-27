@@ -11,8 +11,8 @@
     try_files <% scope['try_files'].each do |try| -%> <%= try %> <% end -%>;
     <% end %>
 
-    <% if scope['location_options'] %>
-    <% scope['location_options'].each do |option, value| -%>
+    <% if scope['options'].to_s != 'undef' %>
+    <% scope['options'].each do |option, value| -%>
     <% if value.kind_of?(Array) %>
     <% value.each do |line| -%>
     <%= option %> <%= line %>;

@@ -54,7 +54,7 @@ define nginx::resource::vhost(
   $index_files        = ['index.html', 'index.htm', 'index.php'],
   $www_root           = undef,
   $try_files          = undef,
-  $location_options   = [],
+  $location_options   = undef,
   $locations          = undef,
   $protocol           = 'plain'
 ) {
