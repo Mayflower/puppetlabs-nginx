@@ -1,6 +1,6 @@
 # header start
 server {
-  <% # if ipv6 is enabled, change listen_ip to [::] if defined as ipv4 * %>
+  <%- # if ipv6 is enabled, change listen_ip to [::] if defined as ipv4 * -%>
   <%- if ipv6_enable && ipv6_enable != 'false' && @ipaddress6 %>
   listen [<%= ipv6_listen_ip %>]:<%= ipv6_listen_port %><% if scope['name'].to_s == '_' %> ipv6only=on default_server<% end %>;
   <%- end -%>
@@ -8,8 +8,8 @@ server {
   server_name <%= name %> <%= server_names.join(' ') %>;
   access_log  <%= scope.lookupvar('nginx::params::nx_logdir')%>/<%= name %>.access.log;
   error_log  <%= scope.lookupvar('nginx::params::nx_logdir')%>/<%= name %>.error.log;
-  <% if www_root.to_s != 'undef' %>
+  <%- if www_root.to_s != 'undef' -%>
   root        <%= www_root %>;
-  <% end %>
+  <%- end -%>
 
 # header end

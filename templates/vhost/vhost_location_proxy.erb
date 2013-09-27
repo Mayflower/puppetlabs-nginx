@@ -8,16 +8,16 @@
     <%- end -%>
     <%- end -%>
 
-    <% if scope['options'] %>
-    <% scope['options'].each do |option, value| -%>
-    <% if value.kind_of?(Array) %>
-    <% value.each do |line| -%>
+    <%- if scope['options'] -%>
+    <%- scope['options'].each do |option, value| -%>
+    <%- if value.kind_of?(Array) -%>
+    <%- value.each do |line| -%>
     <%= option %> <%= line %>;
-    <% end %>
-    <% else %>
+    <%- end -%>
+    <%- else -%>
     <%= option %> <%= value %>;
-    <% end %>
-    <% end %>
-    <% end %>
+    <%- end -%>
+    <%- end -%>
+    <%- end -%>
   }
 # location proxy end

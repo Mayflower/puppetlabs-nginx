@@ -1,19 +1,20 @@
 # location options start
   location <%= location %> {
-    <% options.each do |option, value| -%>
-    <% if value.kind_of?(Array) %>
-    <% value.each do |line| -%>
+    <%- options.each do |option, value| -%>
+    <%- if value.kind_of?(Array) -%>
+    <%- value.each do |line| -%>
     <%= option %> <%= line %>;
-    <% end %>
-    <% else %>
+    <%- end -%>
+    <%- else -%>
     <%= option %> <%= value %>;
-    <% end %>
-    <% end %>
-    <% if scope['index_files'].to_s != 'undef' and scope['index_files'].to_s != '' then %>
+    <%- end -%>
+    <%- end -%>
+
+    <%- if scope['index_files'].to_s != 'undef' and scope['index_files'].to_s != '' then -%>
     index <% scope['index_files'].each do |index| -%> <%= index %> <% end -%>;
-    <% end %> 
-    <% if scope['try_files'].to_s != 'undef' then %> 
+    <%- end -%>
+    <%- if scope['try_files'].to_s != 'undef' then -%>
     try_files <% scope['try_files'].each do |try| -%> <%= try %> <% end -%>;
-    <% end %>
+    <%- end -%>
   }
-#location options end
+# location options end

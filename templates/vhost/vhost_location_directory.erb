@@ -1,26 +1,26 @@
 # location directory start
   location <%= scope['location'] %> {
-    <% if scope['www_root'].to_s != 'undef' %>
+    <%- if scope['www_root'].to_s != 'undef' -%>
     root  <%= scope['www_root'] %>;
-    <% end -%>
-    <% if scope['index_files'].to_s != 'undef' and scope['index_files'] != [] %>
+    <%- end -%>
+    <%- if scope['index_files'].to_s != 'undef' and scope['index_files'] != [] -%>
     index <% scope['index_files'].each do |i| %> <%= i %> <% end %>;
-    <% end -%>
+    <%- end -%>
 
-    <% if scope['try_files'].to_s != 'undef' then %>
+    <%- if scope['try_files'].to_s != 'undef' then -%>
     try_files <% scope['try_files'].each do |try| -%> <%= try %> <% end -%>;
-    <% end %>
+    <%- end -%>
 
-    <% if scope['options'].to_s != 'undef' %>
-    <% scope['options'].each do |option, value| -%>
-    <% if value.kind_of?(Array) %>
-    <% value.each do |line| -%>
+    <%- if scope['options'].to_s != 'undef' -%>
+    <%- scope['options'].each do |option, value| -%>
+    <%- if value.kind_of?(Array) -%>
+    <%- value.each do |line| -%>
     <%= option %> <%= line %>;
-    <% end %>
-    <% else %>
+    <%- end -%>
+    <%- else -%>
     <%= option %> <%= value %>;
-    <% end %>
-    <% end %>
-    <% end %>
+    <%- end -%>
+    <%- end -%>
+    <%- end -%>
   }
 # location directory end
