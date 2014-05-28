@@ -60,6 +60,7 @@ class nginx (
   $gzip                   = $nginx::params::nx_gzip,
   $conf_template          = $nginx::params::nx_conf_template,
   $proxy_conf_template    = $nginx::params::nx_proxy_conf_template,
+  $sendfile               = $nginx::params::nx_sendfile,
   $nginx_vhosts           = {},
   $nginx_upstreams        = {},
   $nginx_locations        = {},
