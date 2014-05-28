@@ -147,6 +147,7 @@ class nginx (
     http_cfg_append        => $http_cfg_append,
     nginx_error_log        => $nginx_error_log,
     http_access_log        => $http_access_log,
+    sendfile               => $sendfile,
     gzip                   => $gzip,
     conf_template          => $conf_template,
     proxy_conf_template    => $proxy_conf_template,
